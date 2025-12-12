@@ -5,7 +5,7 @@ interface Props {
   placeholder: string;
 }
 
-const InputContainer = ({ label, id, type, placeholder }: Props) => {
+const FormInput = ({ label, id, type, placeholder }: Props) => {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
@@ -20,4 +20,4 @@ const InputContainer = ({ label, id, type, placeholder }: Props) => {
   );
 };
 
-export default InputContainer;
+export default FormInput;
