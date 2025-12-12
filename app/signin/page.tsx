@@ -8,17 +8,16 @@ const page = () => {
   return (
     <div className="flex flex-col gap-8 mx-4 my-10">
       <TextArea
-        boldtext="Create your account"
-        text="Start tracking your expenses and managing your finances today."
-        center
+        boldtext="Login to your account"
+        text="Enter your credentials to access your financial dashboard."
       />
-      <SocialLogin />
-      <OR />
       <Form />
+      <OR />
+      <SocialLogin />
       <RedirectAuth
-        href="signin"
-        text="Already have an account?"
-        boldText="Sign In"
+        href="/signup"
+        text="Don’t have an account?"
+        boldText="Sign up"
       />
     </div>
   );

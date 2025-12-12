@@ -4,7 +4,7 @@ interface Props {
 
 const SubmitButton = ({ children }: Props) => {
   return (
-    <button className="w-full mt-2 py-3 rounded-md bg-primary text-white">
+    <button className="w-full py-3 rounded-md bg-primary text-white">
       {children}
     </button>
   );
