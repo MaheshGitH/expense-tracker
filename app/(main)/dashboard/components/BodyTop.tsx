@@ -1,6 +1,6 @@
 import TotalCount from "./TotalCount";
 
-const BodyTop = () => {
+const TopBar = () => {
   return (
     <div className="flex flex-col gap-6 mt-4">
       <TotalCount
@@ -28,4 +28,4 @@ const BodyTop = () => {
   );
 };
 
-export default BodyTop;
+export default TopBar;
