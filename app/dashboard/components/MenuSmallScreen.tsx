@@ -45,7 +45,7 @@ export default function MenuSmallScreen() {
       {open && (
         <div
           ref={menuRef}
-          className="absolute right-0 top-0 mb-2 p-2 rounded bg-white border border-border"
+          className="absolute right-0 top-0 mb-2 p-2 rounded bg-white border border-border z-50"
         >
           <div className="flex items-center justify-between mb-4 mx-1.5">
             <span className="rounded-md hover:bg-[#EBEBEB] p-2 duration-100">

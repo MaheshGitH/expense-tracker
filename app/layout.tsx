@@ -29,7 +29,6 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${lato.variable} antialiased  font-lato text-xs`}
       >
-        {" "}
         {children}
       </body>
     </html>

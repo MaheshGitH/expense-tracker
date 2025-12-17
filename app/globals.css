@@ -25,7 +25,7 @@
   --color-border: #e1e1e1;
   --color-border-dark: #383838;
 
-  /* fonts --- just for autocomplete. fonts will work even without these declaration */
+  /* fonts --- Just for autocomplete. fonts will work even without these declaration */
   --font-montserrat: "Montserrat";
   --font-lato: "Lato";
 }
