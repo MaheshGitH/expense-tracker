@@ -7,7 +7,7 @@ import { IoIosClose } from "react-icons/io";
 import { DayPicker } from "react-day-picker";
 import { format, isValid, parse } from "date-fns";
 import "react-day-picker/dist/style.css";
-import Dialog from "@/app/commonComponents/Dialog";
+import Dialog from "@/app/common-components/Dialog";
 
 export default function DatepickerInput() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();

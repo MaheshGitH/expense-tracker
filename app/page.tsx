@@ -1,8 +1,10 @@
 export default function Home() {
+  console.log("helo");
+
   return (
-    <div className="">
-      <p className="font-montserrat font-semibold">ParaQ</p>
-      <p className="font-montserrat font-bold">ParaQ</p>
-    </div>
+    <span className="text-primary">
+      <p>Hleo asdf </p>
+      <a className="font-montserrat font-semibold">ParaQ</a>
+    </span>
   );
 }

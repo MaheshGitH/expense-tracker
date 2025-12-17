@@ -1,4 +1,4 @@
-import Social from "@/app/commonComponents/sign/Social";
+import Social from "@/app/common-components/sign/Social";
 import GitHub from "@/app/icons/GitHub";
 import Google from "@/app/icons/Google";
 

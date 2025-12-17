@@ -1,5 +1,5 @@
-import RedirectAuth from "../commonComponents/sign/RedirectAuth";
-import TextArea from "../commonComponents/sign/TextArea";
+import RedirectAuth from "../common-components/sign/RedirectAuth";
+import TextArea from "../common-components/sign/TextArea";
 import Form from "./components/Form";
 import OR from "./components/OR";
 import SocialLogin from "./components/SocialLogin";

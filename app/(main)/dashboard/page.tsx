@@ -1,5 +1,5 @@
-import TopBar from "../commonComponents/topbar/TopBar";
-import BodyCenter from "./components/BodyCenter";
+import TopBar from "../common-components/topbar/TopBar";
+import BodyCenter from "./components/body-center/BodyCenter";
 import BodyTop from "./components/BodyTop";
 
 const page = () => {

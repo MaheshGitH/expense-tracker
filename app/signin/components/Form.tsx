@@ -1,5 +1,5 @@
-import FormInput from "@/app/commonComponents/sign/FormInput";
-import SubmitButton from "@/app/commonComponents/sign/SubmitButton";
+import FormInput from "@/app/common-components/sign/FormInput";
+import SubmitButton from "@/app/common-components/sign/SubmitButton";
 
 const Form = () => {
   return (
