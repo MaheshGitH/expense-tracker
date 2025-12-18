@@ -1,6 +1,7 @@
 "use client";
 
 import DatePickerInput from "./DatePickerInput";
+import SelectCategoryInput from "./SelectCategoryInput";
 import TypeInput from "./TypeInput";
 
 const BodyCenter = () => {
@@ -9,9 +10,14 @@ const BodyCenter = () => {
       <p className="font-montserrat font-semibold text-base">
         Quick Add Transaction
       </p>
-      <form onSubmit={(e) => e.preventDefault()} action="">
+      <form
+        className="flex flex-col gap-6"
+        onSubmit={(e) => e.preventDefault()}
+        action=""
+      >
         <TypeInput />
         <DatePickerInput />
+        <SelectCategoryInput />
       </form>
     </div>
   );

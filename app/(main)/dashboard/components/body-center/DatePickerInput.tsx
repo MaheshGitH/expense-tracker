@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { MdOutlineCalendarMonth } from "react-icons/md";
+
 import { IoIosClose } from "react-icons/io";
 
 import { DayPicker } from "react-day-picker";
@@ -11,7 +12,9 @@ import Dialog from "@/app/common-components/Dialog";
 
 export default function DatepickerInput() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(
+    format(new Date(), "dd - MM - yyyy")
+  );
   const [open, setOpen] = useState(false);
 
   // Calendar selection
@@ -41,13 +44,10 @@ export default function DatepickerInput() {
     setOpen(false);
   };
 
-  useEffect(() => {
-    handleToday();
-  }, []);
-
   return (
-    <div className="relative gap-2 rounded-md border border-border">
-      <div className="flex justify-between">
+    <div className="relative">
+      <p className="m-2">Date</p>
+      <div className="flex justify-between rounded-md border border-border">
         <div className="flex flex-1 items-center gap-2 pl-4">
           <label htmlFor="dateInput">
             <MdOutlineCalendarMonth className="text-secondary" size={16} />
@@ -66,6 +66,7 @@ export default function DatepickerInput() {
             className="py-3 w-full"
           />
         </div>
+        <span className="w-px h-3 bg-border my-auto" />
         <button
           onClick={() => {
             setSelectedDate(undefined);
@@ -83,7 +84,7 @@ export default function DatepickerInput() {
           setOpen(false);
         }}
       >
-        <div className="absolute top-full mt-2 p-4 rounded-md border border-border">
+        <div className="z-50 absolute top-full mt-2 p-4 rounded-md border border-border bg-white">
           <DayPicker
             onDayClick={() => setOpen(false)}
             mode="single"
