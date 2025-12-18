@@ -1,8 +1,11 @@
 "use client";
 
+import TypeInput from "./TypeInput";
 import DatePickerInput from "./DatePickerInput";
 import SelectCategoryInput from "./SelectCategoryInput";
-import TypeInput from "./TypeInput";
+import DescriptionInput from "./DescriptionInput";
+import AmountInput from "./AmountInput";
+import SubmitButton from "@/app/common-components/sign/SubmitButton";
 
 const BodyCenter = () => {
   return (
@@ -18,6 +21,9 @@ const BodyCenter = () => {
         <TypeInput />
         <DatePickerInput />
         <SelectCategoryInput />
+        <DescriptionInput />
+        <AmountInput />
+        <SubmitButton>Add Transaction</SubmitButton>
       </form>
     </div>
   );

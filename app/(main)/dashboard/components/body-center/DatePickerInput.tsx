@@ -46,7 +46,7 @@ export default function DatepickerInput() {
 
   return (
     <div className="relative">
-      <p className="m-2">Date</p>
+      <p className="mb-2 ml-2">Date</p>
       <div className="flex justify-between rounded-md border border-border">
         <div className="flex flex-1 items-center gap-2 pl-4">
           <label htmlFor="dateInput">
