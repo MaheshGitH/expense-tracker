@@ -8,7 +8,7 @@ const FinancialTrend = () => {
         Financial Trend
       </p>
       <p className="text-secondary mb-8">Income vs Expense over time.</p>
-      <div className="max-w-md">
+      <div className="max-w-5xl">
         <TrendChart />
       </div>
     </div>

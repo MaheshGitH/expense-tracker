@@ -7,7 +7,7 @@ const Spendings = () => {
         Spending by Category
       </p>
       <p className="text-secondary mb-8">Monthly expense distribution</p>
-      <div className="max-w-md">
+      <div className="max-w-5xl">
         <BarChart />
       </div>
     </div>
