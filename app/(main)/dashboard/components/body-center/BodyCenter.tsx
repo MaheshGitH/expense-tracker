@@ -5,7 +5,7 @@ import Spendings from "./Spendings";
 const BodyCenter = () => {
   return (
     <div className="flex flex-col gap-12">
-      {/* <QuickTransaction /> */}
+      <QuickTransaction />
       <Spendings />
       <FinancialTrend />
     </div>
