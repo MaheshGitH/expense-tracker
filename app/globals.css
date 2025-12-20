@@ -1,33 +1,3 @@
-@import "tailwindcss";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  /* colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-primary: #1a1ab3;
-  --color-secondary: #5f5f5f;
-  --color-danger: #e64d4d;
-  --color-profit: #059669;
-  --color-expense: #a855f7;
-  --color-income: #3b82f6;
-  --color-profit-dark: #16a34a;
-  --color-danger-dark: #db1f1f;
-  --color-primary-bg: #e8e8f7;
-  --color-expense-bg: #f4ecfc;
-  --color-income-bg: #e9f0fc;
-  --color-dark-bg: #1a1a1a;
-  --color-dark-surface: #212121;
-  --color-expense-bg-dark: #282030;
-  --color-income-bg-dark: #1f2632;
-  --color-primary-bg-dark: #1c1c2e;
-  --color-border: #e1e1e1;
-  --color-border-dark: #383838;
-
-  /* fonts --- Just for autocomplete. fonts will work even without these declaration */
-  --font-montserrat: "Montserrat";
-  --font-lato: "Lato";
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
