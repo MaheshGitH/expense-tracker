@@ -14,7 +14,7 @@ const Social = ({ icon, text, center }: Props) => {
       }`}
     >
       {icon}
-      <span className="font-lato text-xs">{text}</span>
+      <span>{text}</span>
     </div>
   );
 };

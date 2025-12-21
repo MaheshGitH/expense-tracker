@@ -32,7 +32,7 @@ export default async function RootLayout({
       <body
         className={`${montserrat.variable} ${
           lato.variable
-        } antialiased  font-lato text-xs ${theme ? theme.value : " dark "}`}
+        } antialiased  font-lato ~text-xs/sm ${theme ? theme.value : " dark "}`}
       >
         {children}
       </body>

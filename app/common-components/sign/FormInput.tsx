@@ -12,7 +12,7 @@ const FormInput = ({ label, id, type, placeholder }: Props) => {
 
       <input
         placeholder={placeholder}
-        className="w-full px-4 py-3 border border-border rounded-md mt-2"
+        className="w-full px-4 py-3 border border-border rounded-md mt-2 outline-none"
         id={id}
         type={type}
       />

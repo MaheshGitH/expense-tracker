@@ -37,7 +37,7 @@ const TotalCount = ({
       </div>
       <div>
         <span
-          className={`font-montserrat font-semibold text-xl ${
+          className={`font-montserrat font-semibold ~text-xl/2xl ${
             type === "profit"
               ? " text-profit "
               : type === "expense"
@@ -47,7 +47,7 @@ const TotalCount = ({
         >
           ${Number(amount).toFixed(2)}
         </span>
-        <p className="font-lato text-[10px]">
+        <p className="font-lato ~text-[0.625rem]/xs">
           {lastMonthPercent}% from last month
         </p>
       </div>

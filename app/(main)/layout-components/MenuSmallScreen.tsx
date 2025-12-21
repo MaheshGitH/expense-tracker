@@ -7,6 +7,8 @@ import { LuLayoutDashboard, LuLogOut } from "react-icons/lu";
 import { FiPlusCircle } from "react-icons/fi";
 import { FaListOl } from "react-icons/fa6";
 import MenuClose from "@/app/icons/MenuClose";
+import { BsMoonStars } from "react-icons/bs";
+
 import Dialog from "@/app/common-components/Dialog";
 import toggleTheme from "@/app/libs/toggleTheme";
 
@@ -29,7 +31,8 @@ export default function MenuSmallScreen() {
               }}
               className="rounded-md hover:bg-[#EBEBEB]/80 p-2 duration-100"
             >
-              <IoSunnyOutline size={16} />
+              <IoSunnyOutline className="~size-4/5 dark:hidden" />
+              <BsMoonStars className="size-4 hidden dark:block" />
             </button>
             <button
               onClick={() => setOpen(false)}

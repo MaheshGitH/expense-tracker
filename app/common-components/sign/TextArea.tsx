@@ -12,18 +12,14 @@ const TextArea = ({ center, boldtext, text }: Props) => {
       <AppLogo />
       <div>
         <p
-          className={`font-montserrat font-semibold text-base ${
+          className={`font-montserrat font-semibold ~text-base/xl ${
             center ? "text-center" : ""
           }`}
         >
           {boldtext}
         </p>
 
-        <p
-          className={`text-secondary text-xs mt-2 ${
-            center ? "text-center" : ""
-          }`}
-        >
+        <p className={`text-secondary mt-2 ${center ? "text-center" : ""}`}>
           {text}
         </p>
       </div>
