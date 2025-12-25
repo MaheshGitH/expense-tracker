@@ -1,5 +1,5 @@
-import React from "react";
-import TopBar from "./layout-components/TopBar";
+import Sidebar from "./layout-components/sidebar/Sidebar";
+import SidebarSmall from "./layout-components/sidebar/SidebarSmall";
 
 export default function MainLayout({
   children,
@@ -7,10 +7,15 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      {/* Hide TopBar over Small-screen */}
-      <TopBar />
-      {children}
-    </>
+    <div className="flex h-screen w-screen overflow-hidden">
+      <aside className="flex-shrink-0">
+        {/* Sidebar for smaller screen sizes */}
+        <SidebarSmall />
+        {/* Sidebar for bigger screen sizes */}
+        <Sidebar />
+      </aside>
+
+      <main className="flex-1 min-w-0 overflow-y-auto pt-14">{children}</main>
+    </div>
   );
 }

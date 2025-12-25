@@ -84,7 +84,7 @@ export default function DatepickerInput() {
           setOpen(false);
         }}
       >
-        <div className="z-50 absolute top-full mt-2 p-4 rounded-md border border-border bg-white">
+        <div className="z-40 absolute top-full mt-2 p-4 rounded-md border border-border bg-white">
           <DayPicker
             onDayClick={() => setOpen(false)}
             mode="single"

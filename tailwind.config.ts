@@ -34,6 +34,7 @@ const config: Config = {
         "primary-bg": "#e8e8f7",
         "expense-bg": "#f4ecfc",
         "income-bg": "#e9f0fc",
+        "surface-bg": "#EBEBEB",
 
         "dark-bg": "#1a1a1a",
         "dark-surface": "#212121",

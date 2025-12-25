@@ -92,7 +92,7 @@ export default function SelectCategoryInput() {
               <button
                 onClick={() => handleClose(value)}
                 className={`${
-                  index === activeIndex ? "bg-[#EBEBEB] " : "  "
+                  index === activeIndex ? "bg-surface-bg " : "  "
                 } p-3 w-full text-start rounded-md mb-0.5`}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(-1)}
