@@ -1,3 +1,4 @@
+import ToggleTheme from "./layout-components/ToggleTheme";
 import Sidebar from "./layout-components/sidebar/Sidebar";
 import SidebarSmall from "./layout-components/sidebar/SidebarSmall";
 
@@ -17,7 +18,12 @@ export default function MainLayout({
         <Sidebar />
       </aside>
 
-      <main className="flex-1 min-w-0 overflow-y-auto pt-14">{children}</main>
+      <main className="flex-1 min-w-0 overflow-y-auto pt-14 md:relative">
+        <div className="absolute ~right-2/4 top-2 max-md:hidden">
+          <ToggleTheme />
+        </div>
+        {children}
+      </main>
     </div>
   );
 }

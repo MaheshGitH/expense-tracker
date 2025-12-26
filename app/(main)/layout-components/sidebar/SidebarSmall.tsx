@@ -7,6 +7,7 @@ import { GoSidebarCollapse } from "react-icons/go";
 import { HiMenuAlt2 } from "react-icons/hi";
 import SidebarContent from "./SidebarContent";
 import { useState } from "react";
+import ToggleTheme from "../ToggleTheme";
 
 const SidebarSmall = () => {
   const [state, setState] = useState(false);
@@ -19,14 +20,18 @@ const SidebarSmall = () => {
   return (
     <>
       <div
-        onClick={handleOpen}
-        className="absolute top-2 left-2 flex gap-4 items-center"
+        className={`absolute top-0 left-0 right-0 py-2 px-4 bg-white ${
+          state ? " z-30 " : "z-50"
+        } flex justify-between`}
       >
-        <button className="rounded-md hover:bg-surface-bg/80 text-end p-2">
-          <HiMenuAlt2 className="~size-4/5" />
-        </button>
+        <div onClick={handleOpen} className="flex gap-4 items-center">
+          <button className="rounded-md hover:bg-surface-bg/80 text-end p-2">
+            <HiMenuAlt2 className="~size-4/5" />
+          </button>
 
-        <AppLogo />
+          <AppLogo />
+        </div>
+        <ToggleTheme />
       </div>
 
       <div
@@ -50,7 +55,7 @@ const SidebarSmall = () => {
               <GoSidebarCollapse className="~size-4/5 rotate-180" />
             </button>
           </div>
-          <SidebarContent />
+          <SidebarContent onSelect={handleClose} />
         </div>
       </div>
       <div

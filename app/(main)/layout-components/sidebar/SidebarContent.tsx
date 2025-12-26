@@ -25,9 +25,10 @@ const menuItem: MenuButtonProps[] = [
 interface Props {
   collapsed?: boolean;
   onClick?: () => void;
+  onSelect?: () => void;
 }
 
-const SidebarContent = ({ collapsed, onClick }: Props) => {
+const SidebarContent = ({ collapsed, onClick, onSelect }: Props) => {
   return (
     <div className="flex flex-col gap-0.5 h-full">
       {menuItem.map((item, index) => (
@@ -37,6 +38,7 @@ const SidebarContent = ({ collapsed, onClick }: Props) => {
           icon={item.icon}
           text={item.text}
           collapsed={collapsed}
+          onClick={onSelect}
         />
       ))}
 
@@ -51,6 +53,7 @@ const SidebarContent = ({ collapsed, onClick }: Props) => {
           text="Logout"
           logout
           collapsed={collapsed}
+          onClick={onSelect}
         />
       </div>
     </div>
