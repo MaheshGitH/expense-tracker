@@ -10,7 +10,9 @@ export default function MainLayout({
     <div className="flex h-screen w-screen overflow-hidden">
       <aside className="flex-shrink-0">
         {/* Sidebar for smaller screen sizes */}
-        <SidebarSmall />
+        <div className="md:hidden">
+          <SidebarSmall />
+        </div>
         {/* Sidebar for bigger screen sizes */}
         <Sidebar />
       </aside>

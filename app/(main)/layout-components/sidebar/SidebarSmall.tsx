@@ -20,7 +20,7 @@ const SidebarSmall = () => {
     <>
       <div
         onClick={handleOpen}
-        className="absolute top-2 left-2 flex gap-4 items-center md:hidden"
+        className="absolute top-2 left-2 flex gap-4 items-center"
       >
         <button className="rounded-md hover:bg-surface-bg/80 text-end p-2">
           <HiMenuAlt2 className="~size-4/5" />

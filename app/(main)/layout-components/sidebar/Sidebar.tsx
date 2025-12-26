@@ -1,12 +1,11 @@
 "use client";
 
-import AppIcon from "@/app/icons/AppIcon";
 import SidebarContent from "./SidebarContent";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { useState } from "react";
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <div
@@ -20,12 +19,12 @@ const Sidebar = () => {
             onClick={() => setCollapsed(!collapsed)}
             disabled={!collapsed}
             className={`bg-primary ${
-              collapsed ? "hover:bg-surface-bg" : " "
-            } group duration-100 p-3 rounded-md`}
+              collapsed ? "hover:bg-surface-bg hover:p-1.5" : " "
+            } group p-2 m-1.5 rounded-md`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`~size-4/5 ${collapsed ? " group-hover:hidden " : ""}`}
+              className={`~size-3/4 ${collapsed ? " group-hover:hidden " : ""}`}
               viewBox="0 0 12 12"
               fill="none"
             >
