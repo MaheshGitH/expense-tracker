@@ -34,7 +34,9 @@ const MenuButton = ({
       <p
         className={`${
           collapsed
-            ? " absolute left-full px-2 py-1 bg-surface-bg rounded-md ml-2 group-hover:block hidden z-50"
+            ? `absolute left-full px-2 py-1 ${
+                logout ? " bg-danger/10 " : "bg-surface-bg"
+              } rounded-md ml-2 group-hover:block hidden z-50`
             : "  "
         } text-nowrap`}
       >

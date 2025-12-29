@@ -4,7 +4,7 @@ interface Props {
   children: string;
 }
 
-const SubmitButton = ({ children }: Props) => {
+const Button = ({ children }: Props) => {
   return (
     <button className="w-full py-3 rounded-md bg-primary text-white">
       {children}
@@ -12,4 +12,4 @@ const SubmitButton = ({ children }: Props) => {
   );
 };
 
-export default SubmitButton;
+export default Button;

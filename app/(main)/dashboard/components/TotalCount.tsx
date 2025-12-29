@@ -1,4 +1,5 @@
 import { FaArrowUp } from "react-icons/fa";
+import { FaScaleUnbalanced } from "react-icons/fa6";
 
 interface Props {
   heading: string;
@@ -16,24 +17,28 @@ const TotalCount = ({
   type,
 }: Props) => {
   return (
-    <div className="border border-border text-secondary px-2 py-4 rounded-md">
+    <div className="border border-border text-secondary px-2 py-4 md:p-8 lg:p-12 rounded-md">
       <div className="flex justify-between mb-2">
         <p>{heading}</p>
-        <FaArrowUp
-          className={` ${
-            arrow === "down"
-              ? " rotate-180 "
-              : arrow === "up"
-              ? "rotate-0"
-              : " hidden "
-          }   ${
-            type === "profit"
-              ? " text-profit "
-              : type === "expense"
-              ? "text-danger"
-              : " text-primary "
-          }`}
-        />
+        {type === "balance" ? (
+          <FaScaleUnbalanced className="text-primary" />
+        ) : (
+          <FaArrowUp
+            className={` ${
+              arrow === "down"
+                ? " rotate-180 md:rotate-[135deg] "
+                : arrow === "up"
+                ? "rotate-0 md:rotate-45"
+                : " hidden "
+            }   ${
+              type === "profit"
+                ? " text-profit "
+                : type === "expense"
+                ? "text-danger"
+                : " "
+            }`}
+          />
+        )}
       </div>
       <div>
         <span

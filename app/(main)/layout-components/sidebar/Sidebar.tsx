@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <div
       className={`h-screen max-md:hidden ${
-        collapsed ? " ~md:~w-[3.88rem]/[3.75rem] " : " w-72 "
+        collapsed ? " ~md:~w-[3.88rem]/[3.75rem] " : " ~w-60/72 "
       } duration-100 p-2 border-r border-border`}
     >
       <div className={`flex flex-col gap-12 h-full ${collapsed ? " " : " "}`}>

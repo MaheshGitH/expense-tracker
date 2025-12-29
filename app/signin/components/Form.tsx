@@ -1,5 +1,5 @@
 import FormInput from "@/app/common-components/sign/FormInput";
-import SubmitButton from "@/app/common-components/sign/SubmitButton";
+import Button from "@/app/common-components/Button";
 
 const Form = () => {
   return (
@@ -17,7 +17,7 @@ const Form = () => {
         type="password"
       />
       <button className="text-primary self-end mt-2">Forgot password?</button>
-      <SubmitButton>Log In</SubmitButton>
+      <Button>Log In</Button>
     </form>
   );
 };

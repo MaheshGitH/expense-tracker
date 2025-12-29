@@ -22,7 +22,7 @@ export default function MainLayout({
         <div className="absolute ~right-2/4 top-2 max-md:hidden">
           <ToggleTheme />
         </div>
-        {children}
+        <div className="max-w-screen-xl mx-auto">{children}</div>
       </main>
     </div>
   );

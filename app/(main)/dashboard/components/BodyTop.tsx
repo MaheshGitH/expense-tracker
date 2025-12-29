@@ -2,7 +2,7 @@ import TotalCount from "./TotalCount";
 
 const TopBar = () => {
   return (
-    <div className="flex flex-col gap-6 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <TotalCount
         heading="Total Income"
         amount={4500}

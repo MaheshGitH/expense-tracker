@@ -1,5 +1,5 @@
 import FormInput from "@/app/common-components/sign/FormInput";
-import SubmitButton from "@/app/common-components/sign/SubmitButton";
+import Button from "@/app/common-components/Button";
 
 const Form = () => {
   return (
@@ -23,7 +23,7 @@ const Form = () => {
         placeholder=""
         type="password"
       />
-      <SubmitButton>Sign Up</SubmitButton>
+      <Button>Sign Up</Button>
     </form>
   );
 };
