@@ -6,20 +6,22 @@ import SocialLogin from "./components/SocialLogin";
 
 const page = () => {
   return (
-    <div className="flex flex-col gap-8 mx-4 my-10">
-      <TextArea
-        boldtext="Create your account"
-        text="Start tracking your expenses and managing your finances today."
-        center
-      />
-      <SocialLogin />
-      <OR />
-      <Form />
-      <RedirectAuth
-        href="signin"
-        text="Already have an account?"
-        boldText="Sign In"
-      />
+    <div className="md:flex justify-center items-center h-screen w-screen px-4 py-10">
+      <div className="flex flex-col gap-8 md:max-w-md md:border border-border rounded-md md:p-12">
+        <TextArea
+          boldtext="Create your account"
+          text="Start tracking your expenses and managing your finances today."
+          center
+        />
+        <SocialLogin />
+        <OR />
+        <Form />
+        <RedirectAuth
+          href="signin"
+          text="Already have an account?"
+          boldText="Sign In"
+        />
+      </div>
     </div>
   );
 };
