@@ -1,6 +1,6 @@
 import BodyCenter from "./components/body-center/BodyCenter";
 import BodyTop from "./components/BodyTop";
-import RecentTransactions from "./components/RecentTransactions";
+import RecentTransactions from "./components/recent-transaction/RecentTransactions";
 
 const page = () => {
   return (
