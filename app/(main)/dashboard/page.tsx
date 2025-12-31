@@ -4,7 +4,7 @@ import RecentTransactions from "./components/recent-transaction/RecentTransactio
 
 const page = () => {
   return (
-    <div className="flex flex-col gap-12 mt-4 mx-2">
+    <div className="flex flex-col gap-12 mt-4 mb-12">
       <BodyTop />
       <BodyCenter />
       <RecentTransactions />

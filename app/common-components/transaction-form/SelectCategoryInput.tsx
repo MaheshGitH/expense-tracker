@@ -1,10 +1,11 @@
 import Dialog from "@/app/common-components/Dialog";
 import { useEffect, useState } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
+import { Reset } from "./types";
 
 const list = ["Food", "Travel", "Movie", "Entertaiment"];
 
-export default function SelectCategoryInput() {
+export default function SelectCategoryInput({ reset }: Reset) {
   const [filteredList, setFilteredList] = useState([""]);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [open, setOpen] = useState(false);
@@ -38,6 +39,12 @@ export default function SelectCategoryInput() {
   useEffect(() => {
     setFilteredList(list);
   }, []);
+
+  useEffect(() => {
+    setValue("");
+    setActiveIndex(0);
+    setFilteredList(list);
+  }, [reset]);
 
   const filterCategory = (list: string[], filter: string) => {
     const filtered = list.filter((value) =>

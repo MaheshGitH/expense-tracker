@@ -3,7 +3,7 @@ import React from "react";
 const TypeInput = () => {
   return (
     <div>
-      <p className="ml-2 mb-2"> Type</p>
+      <p className="ml-2 mb-2">Type</p>
       <div>
         <label className="inline-flex gap-2">
           <input

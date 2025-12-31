@@ -38,7 +38,7 @@ const RecentTransactions = () => {
   };
 
   return (
-    <div className="mb-12 md:border border-border md:p-8 rounded-md">
+    <div className="md:border border-border md:p-8 rounded-md">
       <div className="flex justify-between mb-8 lg:m-4 lg:mb-12 duration-150">
         <p className="font-montserrat font-semibold ~text-base/xl">
           Recent Transactions

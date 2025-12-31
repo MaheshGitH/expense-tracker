@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 
@@ -9,13 +7,18 @@ import { DayPicker } from "react-day-picker";
 import { format, isValid, parse } from "date-fns";
 import "react-day-picker/dist/style.css";
 import Dialog from "@/app/common-components/Dialog";
+import { Reset } from "./types";
 
-export default function DatepickerInput() {
+export default function DatepickerInput({ reset }: Reset) {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [inputValue, setInputValue] = useState(
     format(new Date(), "dd - MM - yyyy")
   );
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    handleToday();
+  }, [reset]);
 
   // Calendar selection
   const handleSelect = (date?: Date) => {
