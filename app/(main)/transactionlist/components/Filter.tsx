@@ -42,7 +42,7 @@ export default function Filter() {
 
   return (
     <div className="relative">
-      <div className="flex rounded-md border border-border">
+      <div className="flex rounded-md border border-border dark:border-border-dark">
         <input
           readOnly
           value={value}
@@ -50,26 +50,28 @@ export default function Filter() {
           className="w-full py-3 px-4 outline-none placeholder-secondary cursor-pointer"
           type="text"
         />
-        <span className="w-px h-3 bg-border my-auto" />
+        <span className="w-px h-3 bg-border dark:bg-border-dark my-auto" />
         <button onClick={handleOpen} className="px-2 w-fit">
           <IoChevronDownOutline size={16} />
         </button>
       </div>
       <Dialog isOpen={open} onClose={() => setOpen(false)}>
-        <ul className="absolute top-full bg-white w-full mt-2 p-2 rounded-md border border-border z-50">
+        <ul className="absolute top-full bg-white dark:bg-dark-bg w-full mt-2 p-2 rounded-md border border-border dark:border-border-dark z-50">
           {list.map((value, index) => (
             <li
               key={index}
               className={
                 index === list.length - 1
                   ? " "
-                  : "after:block after:h-[0.5px] after:bg-border after:mb-0.5"
+                  : "after:block after:h-[0.5px] after:bg-border after:mb-0.5 after:dark:bg-border-dark "
               }
             >
               <button
                 onClick={() => handleClose(value)}
                 className={`${
-                  index === activeIndex ? "bg-surface-bg " : "  "
+                  index === activeIndex
+                    ? "bg-surface-bg dark:bg-dark-surface "
+                    : "  "
                 } p-3 w-full text-start rounded-md mb-0.5`}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(-1)}

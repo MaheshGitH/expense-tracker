@@ -11,7 +11,7 @@ const Sidebar = () => {
     <div
       className={`h-screen max-md:hidden ${
         collapsed ? " ~md:~w-[3.88rem]/[3.75rem] " : " ~w-60/72 "
-      } duration-100 p-2 border-r border-border`}
+      } duration-100 p-2 border-r border-border dark:border-border-dark dark:bg-dark-bg`}
     >
       <div className={`flex flex-col gap-12 h-full ${collapsed ? " " : " "}`}>
         <div className="flex justify-between items-center">
@@ -19,7 +19,9 @@ const Sidebar = () => {
             onClick={() => setCollapsed(!collapsed)}
             disabled={!collapsed}
             className={`bg-primary ${
-              collapsed ? "hover:bg-surface-bg hover:p-1.5" : " "
+              collapsed
+                ? "hover:bg-surface-bg dark:hover:bg-dark-surface hover:p-1.5"
+                : " "
             } group p-2 m-1.5 rounded-md`}
           >
             <svg
@@ -50,18 +52,18 @@ const Sidebar = () => {
             <GoSidebarExpand
               className={
                 collapsed
-                  ? " ~size-4/5 rotate-180 hidden group-hover:block "
+                  ? " ~size-4/5 rotate-180 hidden group-hover:block dark:text-white "
                   : " hidden "
               }
             />
           </button>
           <button
             onClick={() => setCollapsed(true)}
-            className={`hover:bg-surface-bg p-3 rounded-md duration-100 ${
+            className={`hover:bg-surface-bg dark:hover:bg-dark-surface p-3 rounded-md duration-100 ${
               collapsed ? " hidden " : " "
             } `}
           >
-            <GoSidebarCollapse className="~size-4/5 rotate-180" />
+            <GoSidebarCollapse className="~size-4/5 rotate-180 dark:text-white" />
           </button>
         </div>
         <SidebarContent

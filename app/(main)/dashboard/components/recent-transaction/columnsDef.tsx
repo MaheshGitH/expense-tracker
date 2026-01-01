@@ -25,7 +25,7 @@ export const columns: ColumnDef<Transaction>[] = [
     header: () => (
       <p className="flex">
         Description
-        <span className="text-white line-clamp-1">
+        <span className="text-white dark:text-dark-bg line-clamp-1">
           ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
         </span>
       </p>
@@ -33,7 +33,7 @@ export const columns: ColumnDef<Transaction>[] = [
     cell: ({ row }) => (
       <div className="relative group">
         <p className="line-clamp-1">{row.original.description}</p>
-        <p className="absolute hidden group-hover:block bg-surface-bg p-1 z-50 max-w-md">
+        <p className="absolute bottom-1/2 translate-y-1/2 hidden group-hover:block bg-surface-bg dark:bg-dark-surface p-1 z-50 max-w-md">
           {row.original.description}
         </p>
       </div>
@@ -59,7 +59,9 @@ export const columns: ColumnDef<Transaction>[] = [
       return (
         <p
           className={`text-end text-nowrap ${
-            isIncome ? "text-profit" : "text-danger"
+            isIncome
+              ? "text-profit dark:text-profit-dark "
+              : "text-danger dark:text-danger-dark "
           }`}
         >
           {isIncome ? "+" : "-"}${Math.abs(amount).toFixed(2)}
@@ -72,9 +74,9 @@ export const columns: ColumnDef<Transaction>[] = [
     header: "Type",
     cell: ({ row }) =>
       row.original.type === "income" ? (
-        <IoIosTrendingUp className="~size-3/4 text-profit" />
+        <IoIosTrendingUp className="~size-3/4 text-profit dark:text-profit-dark " />
       ) : (
-        <IoIosTrendingDown className="~size-3/4 text-danger" />
+        <IoIosTrendingDown className="~size-3/4 text-danger dark:text-danger-dark" />
       ),
   },
   {
@@ -82,7 +84,7 @@ export const columns: ColumnDef<Transaction>[] = [
     header: () => <div className="text-center">Actions</div>,
     cell: () => (
       <div className="text-center">
-        <button className="text-danger">
+        <button className="text-danger dark:text-danger-dark">
           <LuTrash2 className="~size-3/4" />
         </button>
       </div>

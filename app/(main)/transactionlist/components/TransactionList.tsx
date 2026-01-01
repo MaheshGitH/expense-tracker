@@ -31,7 +31,7 @@ const transactions: Transaction[] = [
 
 const TransactionList = () => {
   return (
-    <div className="md:border border-border md:p-8 rounded-md">
+    <div className="md:border border-border dark:border-border-dark md:p-8 rounded-md">
       {/* For big screens */}
       <div className="max-lg:hidden">
         <TransactionsTable data={transactions} />

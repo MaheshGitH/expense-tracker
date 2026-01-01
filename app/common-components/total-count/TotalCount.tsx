@@ -19,7 +19,7 @@ const TotalCount = ({
   hideLastMonthPercent,
 }: Props) => {
   return (
-    <div className="border border-border text-secondary px-2 py-4 md:p-8 lg:p-12 rounded-md">
+    <div className="border border-border dark:border-border-dark text-secondary px-2 py-4 md:p-8 lg:p-12 rounded-md">
       <div className="flex justify-between mb-2">
         <p>{heading}</p>
         {type === "balance" ? (
@@ -34,9 +34,9 @@ const TotalCount = ({
                 : " hidden "
             }   ${
               type === "profit"
-                ? " text-profit "
+                ? " text-profit dark:text-profit-dark"
                 : type === "expense"
-                ? "text-danger"
+                ? "text-danger dark:text-danger-dark"
                 : " "
             }`}
           />
@@ -46,10 +46,10 @@ const TotalCount = ({
         <span
           className={`font-montserrat font-semibold ~text-xl/2xl ${
             type === "profit"
-              ? " text-profit "
+              ? " text-profit dark:text-profit-dark"
               : type === "expense"
-              ? "text-danger"
-              : " text-primary "
+              ? "text-danger dark:text-danger-dark"
+              : " text-primary"
           }`}
         >
           ${Number(amount).toFixed(2)}

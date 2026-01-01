@@ -8,7 +8,7 @@ interface Props {
 
 const ContentContainer = ({ children, heading, subheading }: Props) => {
   return (
-    <div className="md:border border-border md:p-8 lg:p-12 rounded-md">
+    <div className="md:border border-border dark:border-border-dark md:p-8 lg:p-12 rounded-md">
       <p className="font-montserrat font-semibold ~text-base/xl mb-1">
         {heading}
       </p>

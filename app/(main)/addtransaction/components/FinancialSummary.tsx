@@ -18,8 +18,8 @@ const data = [
 
 const FinancialSummary = () => {
   return (
-    <div className="flex flex-col gap-2 md:border border-border rounded-md md:max-w-96">
-      <div className="max-md:mb-6 md:p-6 md:border-b border-border">
+    <div className="flex flex-col gap-2 md:border border-border dark:border-border-dark rounded-md md:max-w-96">
+      <div className="max-md:mb-6 md:p-6 md:border-b border-border dark:border-border-dark">
         <p className="font-montserrat font-semibold ~text-base/xl mb-2">
           Financial Summary
         </p>

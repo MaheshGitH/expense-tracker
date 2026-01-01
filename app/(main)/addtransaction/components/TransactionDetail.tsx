@@ -2,7 +2,7 @@ import TransactionForm from "@/app/common-components/transaction-form/Transactio
 
 const TransactionDetail = () => {
   return (
-    <div className="flex flex-col gap-8 md:border md:p-6 border-border rounded-md">
+    <div className="flex flex-col gap-8 md:border md:p-6 border-border dark:border-border-dark rounded-md">
       <p className="font-montserrat font-semibold ~text-base/3xl">
         Transaction Details
       </p>

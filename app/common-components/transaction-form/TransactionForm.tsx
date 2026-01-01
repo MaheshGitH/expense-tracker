@@ -31,7 +31,7 @@ const TransactionForm = ({ isClearable }: Props) => {
       {isClearable && (
         <div className="flex gap-2 place-self-end">
           <button
-            className="py-3 px-6 border border-border rounded-md"
+            className="py-3 px-6 border border-border dark:border-border-dark rounded-md"
             onClick={() => {
               setReset(!reset);
               formRef.current?.reset();
@@ -39,7 +39,7 @@ const TransactionForm = ({ isClearable }: Props) => {
           >
             Clear
           </button>
-          <button className="py-3 px-6 border border-border rounded-md bg-primary text-white">
+          <button className="py-3 px-6 rounded-md bg-primary text-white">
             Add Transaction
           </button>
         </div>

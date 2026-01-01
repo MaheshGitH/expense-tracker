@@ -50,7 +50,7 @@ export default function DatepickerInput({ reset }: Reset) {
   return (
     <div className="relative">
       <p className="mb-2 ml-2">Date</p>
-      <div className="flex justify-between rounded-md border border-border">
+      <div className="flex justify-between rounded-md border border-border dark:border-border-dark">
         <div className="flex flex-1 items-center gap-2 pl-4">
           <label htmlFor="dateInput">
             <MdOutlineCalendarMonth className="text-secondary" size={16} />
@@ -69,7 +69,7 @@ export default function DatepickerInput({ reset }: Reset) {
             className="py-3 w-full"
           />
         </div>
-        <span className="w-px h-3 bg-border my-auto" />
+        <span className="w-px h-3 bg-border dark:bg-border-dark my-auto" />
         <button
           onClick={() => {
             setSelectedDate(undefined);
@@ -87,7 +87,7 @@ export default function DatepickerInput({ reset }: Reset) {
           setOpen(false);
         }}
       >
-        <div className="z-40 absolute top-full mt-2 p-4 rounded-md border border-border bg-white">
+        <div className="z-40 absolute top-full mt-2 p-4 rounded-md border border-border dark:border-border-dark bg-white dark:bg-dark-bg">
           <DayPicker
             onDayClick={() => setOpen(false)}
             mode="single"

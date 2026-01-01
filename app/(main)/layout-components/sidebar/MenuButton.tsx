@@ -27,15 +27,17 @@ const MenuButton = ({
       className={` ${
         collapsed ? " w-fit relative group " : "  w-full "
       } flex items-center gap-3 p-3 rounded-md ${
-        logout ? " text-danger hover:bg-danger/10" : " hover:bg-surface-bg/80 "
-      } ${pathname === href ? " bg-surface-bg " : " "}`}
+        logout
+          ? " text-danger dark:text-danger-dark hover:bg-danger/15 "
+          : " hover:bg-surface-bg/80 dark:hover:bg-dark-surface "
+      } ${pathname === href ? " bg-surface-bg dark:bg-dark-surface " : " "}`}
     >
       <span>{icon}</span>
       <p
         className={`${
           collapsed
             ? `absolute left-full px-2 py-1 ${
-                logout ? " bg-danger/10 " : "bg-surface-bg"
+                logout ? " bg-danger/10 " : " dark:bg-dark-bg "
               } rounded-md ml-2 group-hover:block hidden z-50`
             : "  "
         } text-nowrap`}

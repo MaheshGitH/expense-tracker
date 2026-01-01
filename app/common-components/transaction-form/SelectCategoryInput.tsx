@@ -71,7 +71,7 @@ export default function SelectCategoryInput({ reset }: Reset) {
   return (
     <div className="relative">
       <p className="mb-2 ml-2">Category</p>
-      <div className="flex rounded-md border border-border">
+      <div className="flex rounded-md border border-border dark:border-border-dark">
         <input
           value={value}
           onFocus={handleOpen}
@@ -82,24 +82,26 @@ export default function SelectCategoryInput({ reset }: Reset) {
           className="w-full py-3 px-4 outline-none placeholder-secondary"
           type="text"
         />
-        <span className="w-px h-3 bg-border my-auto" />
+        <span className="w-px h-3 bg-border dark:bg-border-dark my-auto" />
         <button onClick={handleOpen} className="px-2 w-fit">
           <IoChevronDownOutline size={16} />
         </button>
       </div>
       <Dialog isOpen={open} onClose={() => setOpen(false)}>
-        <ul className="absolute top-full bg-white w-full mt-2 p-2 rounded-md border border-border">
+        <ul className="absolute top-full bg-white dark:bg-dark-bg w-full mt-2 p-2 rounded-md border border-border dark:border-border-dark">
           {filteredList.map((value, index) => (
             <li
               key={index}
-              className={`after:block after:h-[0.5px] after:bg-border after:mb-0.5 ${
+              className={`after:block after:h-[0.5px] after:bg-border after:dark:bg-border-dark after:mb-0.5 ${
                 index === filteredList.length - 1 ? " after:hidden " : ""
               }`}
             >
               <button
                 onClick={() => handleClose(value)}
                 className={`${
-                  index === activeIndex ? "bg-surface-bg " : "  "
+                  index === activeIndex
+                    ? "bg-surface-bg dark:bg-dark-surface "
+                    : "  "
                 } p-3 w-full text-start rounded-md mb-0.5`}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(-1)}

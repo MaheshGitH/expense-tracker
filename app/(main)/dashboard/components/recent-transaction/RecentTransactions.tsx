@@ -38,14 +38,14 @@ const RecentTransactions = () => {
   };
 
   return (
-    <div className="md:border border-border md:p-8 rounded-md">
+    <div className="md:border border-border dark:border-border-dark md:p-8 rounded-md">
       <div className="flex justify-between mb-8 lg:m-4 lg:mb-12 duration-150">
         <p className="font-montserrat font-semibold ~text-base/xl">
           Recent Transactions
         </p>
         <button
           disabled={selected.length === 0}
-          className="flex items-center gap-1.5 py-1.5 px-3 bg-danger rounded-md text-white disabled:opacity-80 lg:hidden"
+          className="flex items-center gap-1.5 py-1.5 px-3 bg-danger dark:bg-danger-dark rounded-md text-white disabled:opacity-80 lg:hidden"
         >
           Delete {selected.length > 0 ? `(${selected.length})` : <LuTrash2 />}
         </button>
@@ -66,6 +66,7 @@ const RecentTransactions = () => {
             type={transaction.type}
             index={index}
             onSelect={handleSelect}
+            removeBorder={transactions.length - 1 === index}
           />
         ))}
       </div>

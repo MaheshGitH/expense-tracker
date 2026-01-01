@@ -8,7 +8,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen w-screen overflow-hidden">
+    <div className="flex h-screen w-screen overflow-hidden  dark:text-white dark:bg-dark-bg">
       <aside className="flex-shrink-0">
         {/* Sidebar for smaller screen sizes */}
         <div className="md:hidden">

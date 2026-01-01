@@ -26,7 +26,7 @@ export const columns: ColumnDef<Transaction>[] = [
     header: () => (
       <p className="flex">
         Description
-        <span className="text-white line-clamp-1">
+        <span className="text-white dark:text-dark-bg line-clamp-1">
           ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
         </span>
       </p>
@@ -34,7 +34,7 @@ export const columns: ColumnDef<Transaction>[] = [
     cell: ({ row }) => (
       <div className="relative group">
         <p className="line-clamp-1">{row.original.description}</p>
-        <p className="absolute hidden group-hover:block bg-surface-bg p-1 z-50 max-w-md">
+        <p className="absolute bottom-1/2 translate-y-1/2 hidden group-hover:block bg-surface-bg dark:bg-dark-bg p-1 z-50 max-w-md">
           {row.original.description}
         </p>
       </div>
@@ -60,7 +60,9 @@ export const columns: ColumnDef<Transaction>[] = [
       return (
         <p
           className={`text-end text-nowrap ${
-            isIncome ? "text-profit" : "text-danger"
+            isIncome
+              ? "text-profit dark:text-profit-dark "
+              : "text-danger dark:text-danger-dark"
           }`}
         >
           {isIncome ? "+" : "-"}${Math.abs(amount).toFixed(2)}
@@ -74,11 +76,11 @@ export const columns: ColumnDef<Transaction>[] = [
     cell: ({ row }) => (
       <span className="block w-fit">
         {row.original.type === "income" ? (
-          <p className="text-income bg-income-bg px-3 py-1.5 rounded-full">
+          <p className="text-income bg-income-bg dark:bg-income-bg-dark px-3 py-1.5 rounded-full">
             Income
           </p>
         ) : (
-          <p className="text-expense bg-expense-bg px-3 py-1.5 rounded-full">
+          <p className="text-expense bg-expense-bg dark:bg-expense-bg-dark px-3 py-1.5 rounded-full">
             Expense
           </p>
         )}
@@ -93,7 +95,7 @@ export const columns: ColumnDef<Transaction>[] = [
         <button>
           <Edit />
         </button>
-        <button className="text-danger">
+        <button className="text-danger dark:text-danger-dark">
           <LuTrash2 className="~size-3/4" />
         </button>
       </div>

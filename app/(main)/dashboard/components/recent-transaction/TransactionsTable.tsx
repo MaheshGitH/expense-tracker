@@ -37,15 +37,24 @@ export default function TransactionsTable({ data }: Props) {
       </thead>
 
       <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr key={row.id} className="border-b">
-            {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className="p-4 text-sm">
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
-            ))}
-          </tr>
-        ))}
+        {table.getRowModel().rows.map((row, index, rows) => {
+          const isLast = index === rows.length - 1;
+
+          return (
+            <tr
+              key={row.id}
+              className={
+                isLast ? "" : "border-b border-border dark:border-border-dark"
+              }
+            >
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id} className="p-4 text-sm">
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
