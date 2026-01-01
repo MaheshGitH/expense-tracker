@@ -7,6 +7,7 @@ interface Props {
   amount: number;
   lastMonthPercent: number;
   type: "profit" | "expense" | "balance";
+  hideLastMonthPercent?: boolean;
 }
 
 const TotalCount = ({
@@ -15,6 +16,7 @@ const TotalCount = ({
   amount,
   lastMonthPercent,
   type,
+  hideLastMonthPercent,
 }: Props) => {
   return (
     <div className="border border-border text-secondary px-2 py-4 md:p-8 lg:p-12 rounded-md">
@@ -52,9 +54,11 @@ const TotalCount = ({
         >
           ${Number(amount).toFixed(2)}
         </span>
-        <p className="font-lato ~text-[0.625rem]/xs">
-          {lastMonthPercent}% from last month
-        </p>
+        {hideLastMonthPercent ? null : (
+          <p className="font-lato ~text-[0.625rem]/xs">
+            {lastMonthPercent}% from last month
+          </p>
+        )}
       </div>
     </div>
   );

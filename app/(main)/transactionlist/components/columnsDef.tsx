@@ -2,6 +2,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { LuTrash2 } from "react-icons/lu";
 import { IoIosTrendingDown, IoIosTrendingUp } from "react-icons/io";
 import Category from "@/app/common-components/Category";
+import Edit from "@/app/icons/Edit";
 
 export type Transaction = {
   date: string;
@@ -70,18 +71,28 @@ export const columns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "type",
     header: "Type",
-    cell: ({ row }) =>
-      row.original.type === "income" ? (
-        <IoIosTrendingUp className="~size-3/4 text-profit" />
-      ) : (
-        <IoIosTrendingDown className="~size-3/4 text-danger" />
-      ),
+    cell: ({ row }) => (
+      <span className="block w-fit">
+        {row.original.type === "income" ? (
+          <p className="text-income bg-income-bg px-3 py-1.5 rounded-full">
+            Income
+          </p>
+        ) : (
+          <p className="text-expense bg-expense-bg px-3 py-1.5 rounded-full">
+            Expense
+          </p>
+        )}
+      </span>
+    ),
   },
   {
     id: "actions",
     header: () => <div className="text-center">Actions</div>,
     cell: () => (
-      <div className="text-center">
+      <div className="flex gap-3 ml-2">
+        <button>
+          <Edit />
+        </button>
         <button className="text-danger">
           <LuTrash2 className="~size-3/4" />
         </button>

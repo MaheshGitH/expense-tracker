@@ -1,6 +1,6 @@
 import React from "react";
 import { Transaction } from "./columnsDef";
-import Category from "./Category";
+import Category from "@/app/common-components/Category";
 
 interface Props extends Transaction {
   index: number;
