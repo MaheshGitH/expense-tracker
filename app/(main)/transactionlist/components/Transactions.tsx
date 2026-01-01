@@ -7,6 +7,7 @@ import Option from "./Option";
 
 interface Props extends Transaction {
   index: number;
+  removeBorder?: boolean;
 }
 
 const Transactions = ({
@@ -16,6 +17,7 @@ const Transactions = ({
   amount,
   type,
   index,
+  removeBorder,
 }: Props) => {
   const [open, setOpen] = useState(false);
   return (
@@ -33,7 +35,9 @@ const Transactions = ({
           <div className="flex flex-col whitespace-nowrap">
             <span
               className={`${
-                type === "expense" ? "text-danger" : "text-profit"
+                type === "expense"
+                  ? "text-danger dark:text-danger-dark"
+                  : "text-profit dark:text-profit-dark"
               } font-semibold text-end text-sm`}
             >
               {`${type === "expense" ? "- $" : "+ $"}` + amount}
@@ -43,14 +47,16 @@ const Transactions = ({
           <button onClick={() => setOpen(true)} className="py-2">
             <PiDotsThreeOutlineVerticalFill className="~size-3/4" />
           </button>
-          <div className="absolute top-full right-0 z-50 bg-white">
+          <div className="absolute top-full right-0 z-50 bg-white dark:bg-dark-bg">
             <Dialog isOpen={open} onClose={() => setOpen(false)}>
               <Option />
             </Dialog>
           </div>
         </div>
       </div>
-      <span className="inline-block h-px bg-border w-full mt-0.5" />
+      {removeBorder ? null : (
+        <span className="inline-block h-px bg-border dark:bg-border-dark w-full mt-0.5" />
+      )}
     </label>
   );
 };

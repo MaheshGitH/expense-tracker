@@ -1,10 +1,5 @@
-export default function Home() {
-  console.log("helo");
+import { redirect } from "next/navigation";
 
-  return (
-    <span className="text-primary">
-      <p>Hleo asdf </p>
-      <a className="font-montserrat font-semibold">ParaQ</a>
-    </span>
-  );
+export default function Home() {
+  redirect("/dashboard");
 }

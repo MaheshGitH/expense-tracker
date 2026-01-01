@@ -20,12 +20,12 @@ const SidebarSmall = () => {
   return (
     <>
       <div
-        className={`absolute top-0 left-0 right-0 py-2 px-4 bg-white ${
+        className={`absolute top-0 left-0 right-0 py-2 px-4 bg-white dark:bg-dark-bg ${
           state ? " z-30 " : "z-50"
         } flex justify-between`}
       >
         <div onClick={handleOpen} className="flex gap-4 items-center">
-          <button className="rounded-md hover:bg-surface-bg/80 text-end p-2">
+          <button className="rounded-md hover:bg-surface-bg/80 hover:dark:bg-dark-surface text-end p-2">
             <HiMenuAlt2 className="~size-4/5" />
           </button>
 
@@ -35,7 +35,7 @@ const SidebarSmall = () => {
       </div>
 
       <div
-        className={`fixed z-50 h-screen bg-white ${
+        className={`fixed z-50 h-screen bg-white dark:bg-dark-bg ${
           state ? " w-72 " : " w-0 "
         } duration-100`}
       >
@@ -50,7 +50,7 @@ const SidebarSmall = () => {
             </div>
             <button
               onClick={handleClose}
-              className="rounded-md hover:bg-surface-bg/80 text-end p-2"
+              className="rounded-md hover:bg-surface-bg/80 hover:dark:bg-dark-surface text-end p-2"
             >
               <GoSidebarCollapse className="~size-4/5 rotate-180" />
             </button>

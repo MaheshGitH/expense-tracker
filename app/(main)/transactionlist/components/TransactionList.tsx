@@ -47,6 +47,7 @@ const TransactionList = () => {
             category={transaction.category}
             type={transaction.type}
             index={index}
+            removeBorder={index === transactions.length - 1}
           />
         ))}
       </div>

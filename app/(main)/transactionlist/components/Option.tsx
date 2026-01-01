@@ -1,8 +1,10 @@
 const Option = () => {
   return (
-    <div className="flex flex-col border border-border rounded-md">
+    <div className="flex flex-col border border-border dark:border-border-dark rounded-md">
       <button className="text-start px-4 py-2 rounded-t-md">Edit</button>
-      <button className="text-danger px-4 py-2 rounded-b-md">Delete</button>
+      <button className="text-danger dark:text-danger-dark px-4 py-2 rounded-b-md">
+        Delete
+      </button>
     </div>
   );
 };
