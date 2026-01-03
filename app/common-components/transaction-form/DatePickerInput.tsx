@@ -14,6 +14,7 @@ export default function DatepickerInput({ reset }: Reset) {
   const [inputValue, setInputValue] = useState(
     format(new Date(), "dd - MM - yyyy")
   );
+
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -58,6 +59,8 @@ export default function DatepickerInput({ reset }: Reset) {
 
           <input
             id="dateInput"
+            required
+            name="date"
             type="text"
             onFocus={() => {
               setOpen(true);

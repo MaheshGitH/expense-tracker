@@ -2,11 +2,24 @@ import Dialog from "@/app/common-components/Dialog";
 import { useEffect, useState } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { Reset } from "./types";
+import { Type } from "./TransactionForm";
+import { ExpenseCategory, IncomeCategory } from "@/app/types/transaction";
 
-const list = ["Food", "Travel", "Movie", "Entertaiment"];
+interface Props extends Reset {
+  type: Type;
+}
 
-export default function SelectCategoryInput({ reset }: Reset) {
-  const [filteredList, setFilteredList] = useState([""]);
+const expenseList: ExpenseCategory[] = [
+  "Food",
+  "Rent",
+  "Transport",
+  "Entertainment",
+];
+
+const incomeList: IncomeCategory[] = ["Freelance", "Investment", "Salary"];
+
+export default function SelectCategoryInput({ reset, type }: Props) {
+  const [list, setList] = useState([""]);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -14,44 +27,37 @@ export default function SelectCategoryInput({ reset }: Reset) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown") {
-        setActiveIndex((prev) =>
-          prev < filteredList.length - 1 ? prev + 1 : 0
-        );
+        setActiveIndex((prev) => (prev < list.length - 1 ? prev + 1 : 0));
       }
 
       if (e.key === "ArrowUp") {
-        setActiveIndex((prev) =>
-          prev > 0 ? prev - 1 : filteredList.length - 1
-        );
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : list.length - 1));
       }
 
       if (e.key === "Enter") {
         e.preventDefault();
-        setValue(filteredList[activeIndex]);
+        setValue(list[activeIndex]);
         setOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, filteredList]);
+  }, [activeIndex, list]);
 
   useEffect(() => {
-    setFilteredList(list);
-  }, []);
+    if (type == "expense") {
+      setList(expenseList);
+    } else {
+      setList(incomeList);
+    }
+  }, [type]);
 
   useEffect(() => {
     setValue("");
     setActiveIndex(0);
-    setFilteredList(list);
+    setList(expenseList);
   }, [reset]);
-
-  const filterCategory = (list: string[], filter: string) => {
-    const filtered = list.filter((value) =>
-      value.toLowerCase().includes(filter.toLowerCase())
-    );
-    setFilteredList(filtered);
-  };
 
   const handleClose = (value: string) => {
     setValue(value);
@@ -62,24 +68,18 @@ export default function SelectCategoryInput({ reset }: Reset) {
     setOpen(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.currentTarget.value);
-    filterCategory(list, e.currentTarget.value);
-    setActiveIndex(0);
-  };
-
   return (
     <div className="relative">
       <p className="mb-2 ml-2">Category</p>
       <div className="flex rounded-md border border-border dark:border-border-dark">
         <input
+          readOnly
+          required
+          name="category"
           value={value}
-          onFocus={handleOpen}
           placeholder="Select a category"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          className="w-full py-3 px-4 outline-none placeholder-secondary"
+          onClick={handleOpen}
+          className="w-full py-3 px-4 outline-none placeholder-secondary cursor-pointer"
           type="text"
         />
         <span className="w-px h-3 bg-border dark:bg-border-dark my-auto" />
@@ -89,11 +89,11 @@ export default function SelectCategoryInput({ reset }: Reset) {
       </div>
       <Dialog isOpen={open} onClose={() => setOpen(false)}>
         <ul className="absolute top-full bg-white dark:bg-dark-bg w-full mt-2 p-2 rounded-md border border-border dark:border-border-dark">
-          {filteredList.map((value, index) => (
+          {list.map((value, index) => (
             <li
               key={index}
               className={`after:block after:h-[0.5px] after:bg-border after:dark:bg-border-dark after:mb-0.5 ${
-                index === filteredList.length - 1 ? " after:hidden " : ""
+                index === list.length - 1 ? " after:hidden " : ""
               }`}
             >
               <button

@@ -10,6 +10,9 @@ const DescriptionInput = () => {
         </label>
         <input
           id="description"
+          name="description"
+          required
+          autoComplete="off"
           placeholder="e.g., Coffee, Groceries"
           className="w-full py-3 outline-none text-black dark:text-white placeholder-secondary"
           type="text"

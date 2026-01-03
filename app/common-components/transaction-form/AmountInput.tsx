@@ -11,6 +11,9 @@ const AmountInput = () => {
         </label>
         <input
           id="amount"
+          name="amount"
+          required
+          autoComplete="off"
           placeholder="0.00"
           className="w-full py-3 outline-none text-black dark:text-white placeholder-secondary"
           type="number"
