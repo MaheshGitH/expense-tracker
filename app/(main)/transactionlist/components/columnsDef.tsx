@@ -1,6 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { LuTrash2 } from "react-icons/lu";
-import { IoIosTrendingDown, IoIosTrendingUp } from "react-icons/io";
 import Category from "@/app/common-components/Category";
 import Edit from "@/app/icons/Edit";
 

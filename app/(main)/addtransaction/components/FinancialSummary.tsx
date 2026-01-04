@@ -1,22 +1,11 @@
-import React from "react";
+"use client";
+
+import { useTransactionStore } from "@/app/store/useTransactionStore";
 import TotalCount from "./TotalCount";
 
-const data = [
-  {
-    title: "Total Income",
-    amount: 5000,
-  },
-  {
-    title: "Total Expenses",
-    amount: 3000,
-  },
-  {
-    title: "Net Income",
-    amount: 2000,
-  },
-];
-
 const FinancialSummary = () => {
+  const totalCount = useTransactionStore((s) => s.totalCount);
+
   return (
     <div className="flex flex-col gap-2 md:border border-border dark:border-border-dark rounded-md md:max-w-96">
       <div className="max-md:mb-6 md:p-6 md:border-b border-border dark:border-border-dark">
@@ -26,13 +15,13 @@ const FinancialSummary = () => {
         <p className="text-secondary">Your current financial overview.</p>
       </div>
       <div className="flex flex-col md:p-6 ">
-        <TotalCount title="Total Income" amount={5000} profit />
-        <TotalCount title="Total Expenses" amount={2000} loss />
+        <TotalCount title="Total Income" amount={totalCount.income} profit />
+        <TotalCount title="Total Expenses" amount={totalCount.expense} loss />
         <TotalCount
           title="Net Income"
-          amount={3000}
-          profit={5000 > 2000}
-          loss={5000 < 2000}
+          amount={totalCount.netBalance}
+          profit={totalCount.income > totalCount.expense}
+          loss={totalCount.income < totalCount.expense}
         />
       </div>
     </div>

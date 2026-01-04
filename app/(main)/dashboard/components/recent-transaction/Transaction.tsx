@@ -2,8 +2,8 @@ import { Transaction } from "./columnsDef";
 import Category from "@/app/common-components/Category";
 
 interface Props extends Transaction {
-  index: number;
-  onSelect: (id: number, remove?: boolean) => void;
+  id: string;
+  onSelect: (id: string, remove?: boolean) => void;
   removeBorder: boolean;
 }
 
@@ -13,17 +13,17 @@ const Transactions = ({
   date,
   amount,
   type,
-  index,
+  id,
   onSelect,
   removeBorder,
 }: Props) => {
   return (
-    <label htmlFor={index.toString()}>
+    <label htmlFor={id}>
       <div className="flex justify-between items-center">
         <div className="flex gap-1.5">
           <input
-            onChange={(e) => onSelect(index, e.target.checked)}
-            id={index.toString()}
+            onChange={(e) => onSelect(id, e.target.checked)}
+            id={id}
             className="accent-primary "
             type="checkbox"
           />

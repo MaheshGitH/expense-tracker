@@ -3,31 +3,16 @@
 import { useState } from "react";
 import { LuTrash2 } from "react-icons/lu";
 import TransactionsTable from "./TransactionsTable";
-import { Transaction } from "./columnsDef";
 import Transactions from "./Transaction";
-
-const transactions: Transaction[] = [
-  {
-    amount: 3.12,
-    date: "2025-10-24",
-    description: "Coffee at Cafe Shop and Eat at Restaurant",
-    category: "Food",
-    type: "expense",
-  },
-  {
-    amount: 45.5,
-    date: "2025-10-23",
-    description:
-      "Monthly grocery shopping from local supermarket including vegetables, fruits, dairy products and household essentials",
-    category: "Shop",
-    type: "expense",
-  },
-];
+import { useTransactionStore } from "@/app/store/useTransactionStore";
 
 const RecentTransactions = () => {
-  const [selected, setSelected] = useState<number[]>([]);
+  const [selected, setSelected] = useState<string[]>([]);
 
-  const handleSelect = (id: number, checked?: boolean) => {
+  const transactionList = useTransactionStore((s) => s.transactions);
+  const removeTransactions = useTransactionStore((s) => s.removeTransactions);
+
+  const handleSelect = (id: string, checked?: boolean) => {
     setSelected((prev) => {
       if (checked) {
         return prev.includes(id) ? prev : [...prev, id];
@@ -35,6 +20,11 @@ const RecentTransactions = () => {
         return prev.filter((value) => value !== id);
       }
     });
+  };
+
+  const handleRemove = () => {
+    removeTransactions(selected);
+    setSelected([]);
   };
 
   return (
@@ -45,6 +35,7 @@ const RecentTransactions = () => {
         </p>
         <button
           disabled={selected.length === 0}
+          onClick={handleRemove}
           className="flex items-center gap-1.5 py-1.5 px-3 bg-danger dark:bg-danger-dark rounded-md text-white disabled:opacity-80 lg:hidden"
         >
           Delete {selected.length > 0 ? `(${selected.length})` : <LuTrash2 />}
@@ -52,11 +43,11 @@ const RecentTransactions = () => {
       </div>
       {/* For big screens */}
       <div className="max-lg:hidden">
-        <TransactionsTable data={transactions} />
+        <TransactionsTable data={transactionList} />
       </div>
       {/* For small screens */}
       <div className="lg:hidden">
-        {transactions.map((transaction, index) => (
+        {transactionList.map((transaction, index) => (
           <Transactions
             key={index}
             amount={transaction.amount}
@@ -64,9 +55,9 @@ const RecentTransactions = () => {
             description={transaction.description}
             category={transaction.category}
             type={transaction.type}
-            index={index}
+            id={transaction.id}
             onSelect={handleSelect}
-            removeBorder={transactions.length - 1 === index}
+            removeBorder={transactionList.length - 1 === index}
           />
         ))}
       </div>
