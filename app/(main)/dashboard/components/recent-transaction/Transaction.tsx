@@ -1,11 +1,15 @@
-import { Transaction } from "./columnsDef";
 import Category from "@/app/common-components/Category";
 
-interface Props extends Transaction {
+type Props = {
   id: string;
-  onSelect: (id: string, remove?: boolean) => void;
+  amount: number;
+  date: string;
+  description: string;
+  category: string;
+  type: "income" | "expense";
+  onSelect: (id: string, checked?: boolean) => void;
   removeBorder: boolean;
-}
+};
 
 const Transactions = ({
   description,

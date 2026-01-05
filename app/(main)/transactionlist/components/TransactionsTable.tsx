@@ -3,7 +3,8 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { columns, Transaction } from "./columnsDef";
+import { columns } from "./columnsDef";
+import { Transaction } from "@/app/types/transaction";
 
 interface Props {
   data: Transaction[];

@@ -22,7 +22,7 @@ const TransactionList = () => {
             description={transaction.description}
             category={transaction.category}
             type={transaction.type}
-            index={index}
+            id={transaction.id}
             removeBorder={index === transactionList.length - 1}
           />
         ))}

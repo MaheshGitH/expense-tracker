@@ -1,14 +1,18 @@
-import { Transaction } from "./columnsDef";
 import Category from "@/app/common-components/Category";
 import Dialog from "@/app/common-components/Dialog";
 import { useState } from "react";
 import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
 import Option from "./Option";
 
-interface Props extends Transaction {
-  index: number;
-  removeBorder?: boolean;
-}
+type Props = {
+  id: string;
+  amount: number;
+  date: string;
+  description: string;
+  category: string;
+  type: "income" | "expense";
+  removeBorder: boolean;
+};
 
 const Transactions = ({
   description,
@@ -16,12 +20,12 @@ const Transactions = ({
   date,
   amount,
   type,
-  index,
+  id,
   removeBorder,
 }: Props) => {
   const [open, setOpen] = useState(false);
   return (
-    <label htmlFor={index.toString()}>
+    <label htmlFor={id}>
       <div className="flex justify-between items-center">
         <div className="flex gap-1.5">
           <div>
@@ -49,7 +53,7 @@ const Transactions = ({
           </button>
           <div className="absolute top-full right-0 z-50 bg-white dark:bg-dark-bg">
             <Dialog isOpen={open} onClose={() => setOpen(false)}>
-              <Option />
+              <Option onClick={() => setOpen(false)} id={id} />
             </Dialog>
           </div>
         </div>

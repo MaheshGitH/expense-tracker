@@ -2,14 +2,8 @@ import { ColumnDef } from "@tanstack/react-table";
 import { LuTrash2 } from "react-icons/lu";
 import { IoIosTrendingDown, IoIosTrendingUp } from "react-icons/io";
 import Category from "@/app/common-components/Category";
-
-export type Transaction = {
-  date: string;
-  description: string;
-  category: string;
-  amount: number;
-  type: "income" | "expense";
-};
+import { useTransactionStore } from "@/app/store/useTransactionStore";
+import { Transaction } from "@/app/types/transaction";
 
 export const columns: ColumnDef<Transaction>[] = [
   {
@@ -82,12 +76,21 @@ export const columns: ColumnDef<Transaction>[] = [
   {
     id: "actions",
     header: () => <div className="text-center">Actions</div>,
-    cell: () => (
-      <div className="text-center">
-        <button className="text-danger dark:text-danger-dark">
-          <LuTrash2 className="~size-3/4" />
-        </button>
-      </div>
-    ),
+    cell: ({ row }) => {
+      const removeTransaction = useTransactionStore(
+        (s) => s.removeTransactions
+      );
+
+      return (
+        <div className="text-center">
+          <button
+            onClick={() => removeTransaction([row.original.id])}
+            className="text-danger dark:text-danger-dark"
+          >
+            <LuTrash2 className="~size-3/4" />
+          </button>
+        </div>
+      );
+    },
   },
 ];
