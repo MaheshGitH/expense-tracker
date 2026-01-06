@@ -12,12 +12,12 @@ const BodyCenter = () => {
       <ContentContainer heading="Quick Add Transaction">
         <TransactionForm />
       </ContentContainer>
-      <ContentContainer
+      {/* <ContentContainer
         heading="Spending by Category"
         subheading="Monthly expense distribution"
       >
         <BarChart />
-      </ContentContainer>
+      </ContentContainer> */}
       <ContentContainer
         heading="Financial Trend"
         subheading="Income vs Expense over time."

@@ -120,7 +120,7 @@ export function updateMonthlyTotal(
   type: string
 ): MonthlyTotals[] {
   const monthIndex = getMonthIndex(date);
-  console.log("from expense: ", monthIndex);
+
   if (type === "expense") {
     const updatedMonthlyTotal = existingMontlyTotal.map((monthlyTotal) => {
       if (monthlyTotal.id === monthIndex) {
@@ -136,7 +136,7 @@ export function updateMonthlyTotal(
 
       return monthlyTotal;
     });
-    console.log("from expense: ", updateMonthlyTotal);
+
     return updatedMonthlyTotal;
   } else {
     const updatedMonthlyTotal = existingMontlyTotal.map((monthlyTotal) => {
