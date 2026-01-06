@@ -13,6 +13,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import useTheme from "@/app/hooks/useTheme";
+import extractTrendData from "@/app/libs/extractTrendData";
+import { useTransactionStore } from "@/app/store/useTransactionStore";
 
 ChartJS.register(
   LineElement,
@@ -25,47 +27,28 @@ ChartJS.register(
 
 const TrendChart = () => {
   const theme = useTheme();
+  const monthlyTotal = useTransactionStore((s) => s.monthlyTotals);
+  const { labels, expense, income, netBalance } =
+    extractTrendData(monthlyTotal);
 
   const data: ChartData<"line"> = {
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
+    labels: labels,
     datasets: [
       {
         label: "Income",
-        data: [
-          5000, 5200, 4800, 6000, 6100, 7000, 7200, 6800, 6400, 6600, 7100,
-          7500,
-        ],
+        data: income,
         borderColor: theme === "dark" ? "#16a34a" : "#059669",
         backgroundColor: theme === "dark" ? "#16a34a" : "#059669",
       },
       {
         label: "Expense",
-        data: [
-          3000, 3100, 2900, 3500, 3600, 4000, 4200, 4100, 3800, 3900, 4300,
-          4500,
-        ],
+        data: expense,
         borderColor: theme === "dark" ? "#db1f1f" : "#e64d4d",
         backgroundColor: theme === "dark" ? "#db1f1f" : "#e64d4d",
       },
       {
         label: "Net Balance",
-        data: [
-          2000, 2100, 1900, 2500, 2500, 3000, 3000, 2700, 2600, 2700, 2800,
-          3000,
-        ],
+        data: netBalance,
         borderColor: " #1a1ab3",
         backgroundColor: " #1a1ab3",
       },

@@ -1,5 +1,3 @@
-"use client";
-
 import SidebarContent from "./SidebarContent";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { useState } from "react";

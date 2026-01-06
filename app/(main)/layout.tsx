@@ -1,6 +1,5 @@
 import ToggleTheme from "./layout-components/ToggleTheme";
-import Sidebar from "./layout-components/sidebar/Sidebar";
-import SidebarSmall from "./layout-components/sidebar/SidebarSmall";
+import ASide from "./layout-components/sidebar/ASide";
 
 export default function MainLayout({
   children,
@@ -8,16 +7,8 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen w-screen overflow-hidden  dark:text-white dark:bg-dark-bg">
-      <aside className="flex-shrink-0">
-        {/* Sidebar for smaller screen sizes */}
-        <div className="md:hidden">
-          <SidebarSmall />
-        </div>
-        {/* Sidebar for bigger screen sizes */}
-        <Sidebar />
-      </aside>
-
+    <div className="flex h-screen w-screen overflow-hidden dark:text-white dark:bg-dark-bg">
+      <ASide />
       <main className="flex-1 min-w-0 overflow-y-auto pt-14 md:relative">
         <div className="absolute ~right-2/4 top-2 max-md:hidden">
           <ToggleTheme />

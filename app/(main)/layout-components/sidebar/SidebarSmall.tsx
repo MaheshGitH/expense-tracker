@@ -1,5 +1,3 @@
-"use client";
-
 import AppLogo from "@/app/AppLogo";
 
 import AppIcon from "@/app/icons/AppIcon";

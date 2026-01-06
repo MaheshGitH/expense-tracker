@@ -5,12 +5,15 @@ import { LuTrash2 } from "react-icons/lu";
 import TransactionsTable from "./TransactionsTable";
 import Transactions from "./Transaction";
 import { useTransactionStore } from "@/app/store/useTransactionStore";
+import getMonthIndex from "@/app/libs/getMonthIndex";
 
 const RecentTransactions = () => {
   const [selected, setSelected] = useState<string[]>([]);
 
   const transactionList = useTransactionStore((s) => s.transactions);
   const removeTransactions = useTransactionStore((s) => s.removeTransactions);
+
+  transactionList.map((t) => console.log(getMonthIndex(t.date)));
 
   const handleSelect = (id: string, checked?: boolean) => {
     setSelected((prev) => {

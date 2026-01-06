@@ -4,7 +4,7 @@ import { useTransactionStore } from "@/app/store/useTransactionStore";
 import TotalCount from "./TotalCount";
 
 const FinancialSummary = () => {
-  const totalCount = useTransactionStore((s) => s.totalCount);
+  const totalCount = useTransactionStore((s) => s.totals);
 
   return (
     <div className="flex flex-col gap-2 md:border border-border dark:border-border-dark rounded-md md:max-w-96">
