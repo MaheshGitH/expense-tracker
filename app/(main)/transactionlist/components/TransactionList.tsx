@@ -21,7 +21,14 @@ const TransactionList = () => {
     setList(transactionList);
     if (filter === "All Category") return;
     setList((prev) => prev.filter((item) => item.category === filter));
-  }, [transactionList, search, filter]);
+  }, [transactionList, filter]);
+
+  useEffect(() => {
+    if (search === "") setList(transactionList);
+    setList((prev) =>
+      prev.filter((item) => item.description.toLowerCase().includes(search))
+    );
+  }, [search]);
 
   return (
     <>
