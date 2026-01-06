@@ -1,39 +1,29 @@
 "use client";
 
 import Dialog from "@/app/common-components/Dialog";
-import { useEffect, useState } from "react";
+import { type Filter, useFilterStore } from "@/app/store/useFilterStore";
+import { useState } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
 
 export default function Filter() {
-  const list = ["All Category", "Food", "Travel", "Movie", "Entertaiment"];
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const list: Filter[] = [
+    "All Category",
+    "Food",
+    "Entertainment",
+    "Freelance",
+    "Investment",
+    "Rent",
+    "Salary",
+    "Transport",
+  ];
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("All Category");
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown") {
-        setActiveIndex((prev) => (prev < list.length - 1 ? prev + 1 : 0));
-      }
+  const setFilter = useFilterStore((s) => s.setFilter);
+  const filter = useFilterStore((s) => s.filter);
 
-      if (e.key === "ArrowUp") {
-        setActiveIndex((prev) => (prev > 0 ? prev - 1 : list.length - 1));
-      }
-
-      if (e.key === "Enter") {
-        e.preventDefault();
-        setValue(list[activeIndex]);
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, list]);
-
-  const handleClose = (value: string) => {
-    setValue(value);
+  const handleClose = (value: Filter) => {
     setOpen(false);
+    setFilter(value);
   };
 
   const handleOpen = () => {
@@ -45,7 +35,7 @@ export default function Filter() {
       <div className="flex rounded-md border border-border dark:border-border-dark">
         <input
           readOnly
-          value={value}
+          value={filter}
           onFocus={handleOpen}
           className="w-full py-3 px-4 outline-none placeholder-secondary cursor-pointer"
           type="text"
@@ -68,13 +58,7 @@ export default function Filter() {
             >
               <button
                 onClick={() => handleClose(value)}
-                className={`${
-                  index === activeIndex
-                    ? "bg-surface-bg dark:bg-dark-surface "
-                    : "  "
-                } p-3 w-full text-start rounded-md mb-0.5`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onMouseLeave={() => setActiveIndex(-1)}
+                className="hover:bg-surface-bg hover:dark:bg-dark-surface p-3 w-full text-start rounded-md mb-0.5"
               >
                 {value}
               </button>

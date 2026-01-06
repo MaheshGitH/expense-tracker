@@ -1,6 +1,13 @@
+import { useFilterStore } from "@/app/store/useFilterStore";
+import { ChangeEvent } from "react";
 import { IoSearch } from "react-icons/io5";
 
 const Search = () => {
+  const setSearch = useFilterStore((s) => s.setSearch);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.currentTarget.value);
+  };
+
   return (
     <div className="flex items-center gap-3 py-3 px-4 w-full border border-border dark:border-border-dark rounded-md">
       <label htmlFor="search">
@@ -9,6 +16,7 @@ const Search = () => {
       <input
         className="w-full outline-none placeholder:text-secondary"
         id="search"
+        onChange={handleChange}
         placeholder="Search by description..."
         type="text"
       />
