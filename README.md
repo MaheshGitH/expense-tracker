@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Expense Tracker
 
-## Getting Started
+A modern expense tracking app to manage income and expenses with monthly insights and visual charts.
 
-First, run the development server:
+## 🎥 Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Watch the demo video:  
+<video src="https://github.com/user-attachments/assets/e0d44157-f9af-4d16-8a49-61030c2ac329" title="Demo"/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Purpose
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app helps users track their daily income and expenses, view monthly summaries, and understand spending patterns through charts.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+- Add income and expense transactions
+- Category-based tracking
+- Monthly income, expense, and net balance summary
+- Interactive charts for better insights
+- Recent transactions list (latest first)
+- Responsive UI for mobile and desktop
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Chart.js
+- Zustand (state management)
+- Bun (runtime & package manager)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💾 Data Storage
 
-## Deploy on Vercel
+All transaction data is stored locally in the user's browser using localStorage.  
+No backend or external database is used.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧑‍💻 Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Mahesh Krishnan**
+
+  [MaheshGitH](https://github.com/MaheshGitH)
