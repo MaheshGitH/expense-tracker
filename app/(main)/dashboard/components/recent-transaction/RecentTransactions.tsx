@@ -5,7 +5,6 @@ import { LuTrash2 } from "react-icons/lu";
 import TransactionsTable from "./TransactionsTable";
 import Transactions from "./Transaction";
 import { useTransactionStore } from "@/app/store/useTransactionStore";
-import getMonthIndex from "@/app/libs/getMonthIndex";
 
 const RecentTransactions = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -13,7 +12,7 @@ const RecentTransactions = () => {
   const transactionList = useTransactionStore((s) => s.transactions);
   const removeTransactions = useTransactionStore((s) => s.removeTransactions);
 
-  transactionList.map((t) => console.log(getMonthIndex(t.date)));
+  const list = [...transactionList].reverse().slice(0, 15);
 
   const handleSelect = (id: string, checked?: boolean) => {
     setSelected((prev) => {
@@ -46,11 +45,11 @@ const RecentTransactions = () => {
       </div>
       {/* For big screens */}
       <div className="max-lg:hidden">
-        <TransactionsTable data={transactionList} />
+        <TransactionsTable data={list} />
       </div>
       {/* For small screens */}
       <div className="lg:hidden">
-        {transactionList.map((transaction, index) => (
+        {list.map((transaction, index) => (
           <Transactions
             key={index}
             amount={transaction.amount}
@@ -60,7 +59,7 @@ const RecentTransactions = () => {
             type={transaction.type}
             id={transaction.id}
             onSelect={handleSelect}
-            removeBorder={transactionList.length - 1 === index}
+            removeBorder={list.length - 1 === index}
           />
         ))}
       </div>
