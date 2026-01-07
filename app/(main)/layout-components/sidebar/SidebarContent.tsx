@@ -1,4 +1,3 @@
-import React from "react";
 import { LuLayoutDashboard, LuLogOut } from "react-icons/lu";
 import { FiPlusCircle } from "react-icons/fi";
 import { FaListOl } from "react-icons/fa6";
@@ -48,7 +47,7 @@ const SidebarContent = ({ collapsed, onClick, onSelect }: Props) => {
       />
       <div className="max-md:mt-auto">
         <MenuButton
-          href="/logout"
+          href=""
           icon={<LuLogOut className="~size-4/5" />}
           text="Logout"
           logout

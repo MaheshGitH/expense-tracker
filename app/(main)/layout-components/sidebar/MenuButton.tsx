@@ -28,7 +28,7 @@ const MenuButton = ({
         collapsed ? " w-fit relative group " : "  w-full "
       } flex items-center gap-3 p-3 rounded-md ${
         logout
-          ? " text-danger dark:text-danger-dark hover:bg-danger/15 "
+          ? " text-danger dark:text-danger-dark hover:bg-danger/15 cursor-default opacity-50 "
           : " hover:bg-surface-bg/80 dark:hover:bg-dark-surface "
       } ${pathname === href ? " bg-surface-bg dark:bg-dark-surface " : " "}`}
     >
@@ -37,7 +37,9 @@ const MenuButton = ({
         className={`${
           collapsed
             ? `absolute left-full px-2 py-1 ${
-                logout ? " bg-danger/10 " : " bg-surface-bg dark:bg-dark-bg "
+                logout
+                  ? " bg-danger/10 group-hover:hidden "
+                  : " bg-surface-bg dark:bg-dark-bg "
               } rounded-md ml-2 group-hover:block hidden z-50`
             : "  "
         } text-nowrap`}
