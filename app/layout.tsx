@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "An expense tracking application designed to manage income and expenses, provide monthly financial summaries, and visualize spending patterns using interactive charts. Built with Next.js, TypeScript, Tailwind CSS, and modern state management.",
 
   verification: {
-    google: "",
+    google: "N_RRRw2MotI1UYegfbmG6DZUaJX8gHchMS-tr9v0sZ0",
   },
 };
 
