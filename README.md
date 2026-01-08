@@ -1,4 +1,4 @@
-# Expense Tracker
+# <img src="https://github.com/user-attachments/assets/8e064885-727e-4acd-9023-b62da3358e0b" width="250" alt="App logo"/>
 
 A modern expense tracking app to manage income and expenses with monthly insights and visual charts.
 
