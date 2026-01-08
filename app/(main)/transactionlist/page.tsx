@@ -1,5 +1,10 @@
 import TotalSection from "@/app/common-components/total-count/TotalSection";
 import TransactionList from "./components/TransactionList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Transaction List",
+};
 
 const page = () => {
   return (

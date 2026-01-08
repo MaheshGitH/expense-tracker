@@ -1,6 +1,11 @@
 import BodyCenter from "./components/body-center/BodyCenter";
 import TotalSection from "@/app/common-components/total-count/TotalSection";
 import RecentTransactions from "./components/recent-transaction/RecentTransactions";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+};
 
 const page = () => {
   return (

@@ -1,6 +1,11 @@
 import FinancialSummary from "./components/FinancialSummary";
 import Header from "./components/Header";
 import TransactionDetail from "./components/TransactionDetail";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Add Transaction",
+};
 
 const page = () => {
   return (
